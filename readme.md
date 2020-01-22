@@ -1,5 +1,5 @@
 # WebDriverWaitExtensions
-For information on the WebDriverWaitExtension package how to use it please visit the [wiki](https://github.com/expectedresult/WebDriverWaitExtensions/wiki).
+For information on the WebDriverWaitExtension package visit the [wiki](https://github.com/expectedresult/WebDriverWaitExtensions/wiki).
 
 ## Download
-For the latest release, visit the [releases](https://github.com/expectedresult/WebDriverWaitExtensions/releases) page.
+For the latest release, visit the [NuGet](https://www.nuget.org/packages/WebDriverWaitExtensions) page.
