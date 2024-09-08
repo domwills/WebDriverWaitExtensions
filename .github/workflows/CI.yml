@@ -25,8 +25,10 @@ jobs:
       - name: Run Tests
         run: dotnet test --no-build
       - name: Generate LivingDoc
+        if: always()
         run: livingdoc test-assembly **/bin/**/WebDriverWaitExtensions.Tests.dll -t **/TestExecution.json
       - name: Archive LivingDoc report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: livingdoc-report
