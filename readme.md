@@ -36,12 +36,15 @@ Assert.That(condition.Result, Is.True, condition.Error);
 
 The library provides the following features:
 
-- **Alert Conditions**: Methods for handling alert conditions.
-- **Element Conditions**: Methods for handling element conditions.
-- **Frame Conditions**: Methods for handling frame conditions.
-- **Text in Element Conditions**: Methods for handling text in element conditions.
-- **Title Conditions**: Methods for handling title conditions.
-- **URL Conditions**: Methods for handling URL conditions.
+- [Alert Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilAlert()): Methods for handling alert conditions.
+- [Element Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilElement()): Methods for handling element conditions.
+- [Frame Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilFrame()): Methods for handling frame conditions.
+- [Text in Element Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilTextInElement()): Methods for handling text in element conditions.
+- [Title Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilTitle()): Methods for handling title conditions.
+- [URL Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilUrl()): Methods for handling URL conditions.
+
+## More Documentation
+For more detailed documentation, please visit the [wiki](https://github.com/domwills/WebDriverWaitExtensions/wiki).
 
 ## Donate
 If you find this project useful and would like to support its development, please consider making a donation. 
