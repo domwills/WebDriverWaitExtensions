@@ -7,7 +7,7 @@ using WebDriverWaitExtensions.ExpectedConditions;
 namespace WebDriverWaitExtensions.Until;
 
 /// <summary>
-/// Contains methods for handling text conditions.
+/// Contains methods for handling element text conditions.
 /// </summary>
 public class UntilTextInElement
 {
