@@ -23,10 +23,12 @@ Size: {Width=211, Height=66}
 TagName: a
 Text: ''
 ```
-You can use the 'out' keyword to return a `Condition` object which will contain the condition result and will contain the error if one occured. This allows you to use these wait conditions as asserts.
+You can use the 'out' keyword to return a `Condition` object which will contain the condition result and will contain the 
+error if one occured. This allows you to use these wait conditions as asserts.
 
-If we had a method to determine an element was visible which we use in an assert, and wanted to ensure we have a wait to give it enough time to become visible, we have an issue where it'll always return true otherwise it'll throw an exception.
-Using the `Condition` object we can suppress the exception and allow the condition to run and return the result.
+If we had a method to check if an element is visible for use in an assert, and we wanted to ensure it waits long enough to 
+become visible, it would either always return true or throw an exception. By using the Condition object, we can suppress the 
+exception and allow the condition to run and return the result.
 ```csharp
 wait.UntilElement().IsVisible(signUpButton, out var condition);
 Assert.That(condition.Result, Is.True, condition.Error);
