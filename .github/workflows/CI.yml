@@ -20,5 +20,14 @@ jobs:
           dotnet-version: '6.0.x'
       - name: Build
         run: dotnet build
+      - name: Install SpecFlow LivingDoc
+        run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
       - name: Run Tests
         run: dotnet test --no-build
+      - name: Generate LivingDoc
+        run: livingdoc test-assembly **\bin\**\WebDriverWaitExtensions.Tests.dll -t **\TestExecution.json
+      - name: Archive LivingDoc report
+        uses: actions/upload-artifact@v4
+        with:
+          name: livingdoc-report
+          path: /**/LivingDoc.html
