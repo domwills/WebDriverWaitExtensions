@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+      - name: Build
+        run: dotnet build
+      - name: Install SpecFlow LivingDoc
+        run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+      - name: Run Tests
+        run: dotnet test --no-build
+      - name: Generate LivingDoc
+        if: always()
+        run: livingdoc test-assembly **/bin/**/WebDriverWaitExtensions.Tests.dll -t **/TestExecution.json
+      - name: Archive LivingDoc report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livingdoc-report
+          path: LivingDoc.html

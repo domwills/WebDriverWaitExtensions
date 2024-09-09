@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+
+    <TargetFramework>net6.0</TargetFramework>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>WebDriverWaitExtensions</PackageId>
+    <Description>WebDriverWaitExtensions is a C# library that provides extension methods for Selenium WebDriver's WebDriverWait class, simplifying the process of waiting for specific conditions in web automation. It includes detailed error messages and supports the use of Condition objects for assertions.</Description>
+    <Version>3.0.0</Version>
+    <Authors>Dominic Williams</Authors>
+    <PackageProjectUrl>https://github.com/domwills/WebDriverWaitExtensions</PackageProjectUrl>
+    <PackageTags>WebDriverWait Extensions WebDriver Selenium WebDriverWaitExtensions</PackageTags>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="4.*" />
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+</Project>
