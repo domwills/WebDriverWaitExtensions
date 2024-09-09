@@ -119,8 +119,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is not present on the DOM of a
-    /// page.
+    /// An expectation for checking that an element is not present on the DOM of a page.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
@@ -130,8 +129,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is not present on the DOM of a
-    /// page.
+    /// An expectation for checking that an element is not present on the DOM of a page.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
@@ -142,8 +140,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is not present on the DOM of a
-    /// page.
+    /// An expectation for checking that an element is not present on the DOM of a page.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="condition">Out parameter that returns a <see cref="Condition"/> object indicating the result of the condition.</param>
@@ -154,8 +151,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is not present on the DOM of a
-    /// page.
+    /// An expectation for checking that an element is not present on the DOM of a page.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
