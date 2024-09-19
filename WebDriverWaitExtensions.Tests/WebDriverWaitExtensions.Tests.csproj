@@ -20,13 +20,4 @@
       <ProjectReference Include="..\WebDriverWaitExtensions\WebDriverWaitExtensions.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="Features\UntilElement\IsClicked\ElementIsClickedTimeoutCondition.feature.cs">
-        <DependentUpon>ElementIsClickedTimeoutCondition.feature</DependentUpon>
-        <AutoGen>true</AutoGen>
-        <DesignTime>true</DesignTime>
-        <Visible>true</Visible>
-      </Compile>
-    </ItemGroup>
-
 </Project>
