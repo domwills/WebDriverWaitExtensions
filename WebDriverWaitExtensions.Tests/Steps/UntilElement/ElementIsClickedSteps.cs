@@ -29,6 +29,21 @@ public sealed class ElementIsClickedSteps
         _scenarioContext.AddOrUpdate(ScenarioContextKeys.MockDriver, mockDriver);
     }
 
+    [Given(@"the WebElement is overlaid by another element when clicked")]
+    public void GivenTheWebElementIsOverlaidByAnotherElementWhenClicked()
+    {
+        var mockDriver = MockSetup.GetDriver(_scenarioContext);
+        var mockElement = MockSetup.GetWebElement(_scenarioContext);
+
+        mockElement.Setup(e => e.Click())
+            .Throws(new ElementClickInterceptedException());
+
+        mockDriver.Setup(d => d.FindElement(By.Id("id")))
+            .Returns(mockElement.Object);
+
+        _scenarioContext.AddOrUpdate(ScenarioContextKeys.MockDriver, mockDriver);
+    }
+
     [When(@"I use Wait\.UntilElement\(\)\.IsClicked\(By\.Id\('([^,]*)'\)\)")]
     public void WhenIUseWaitUntilElementIsClickedById(string locator)
     {

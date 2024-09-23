@@ -28,6 +28,17 @@
 
             """
 
+    Scenario: IsClicked(locator, timeout) throws a WebDriverTimeoutException if click is intercepted
+        Given the WebElement is overlaid by another element when clicked
+        When I use Wait.UntilElement().IsClicked(By.Id('id'), timeout)
+        Then the method will throw a WebDriverTimeoutException
+            """
+            Element has not been clicked, 'ElementClickInterceptedException' has been thrown internally.
+            Locator Name: 'submitButton'
+            Locator: 'By.Id: id'
+
+            """
+
     Scenario: IsClicked(locator, timeout) throws the unhandled exception if an unhandled exception occurs
         Given an unhandled exception occurs
         When I use Wait.UntilElement().IsClicked(By.Id('id'), timeout)
