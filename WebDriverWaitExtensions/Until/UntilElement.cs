@@ -189,9 +189,8 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is present on the DOM of a page
-    /// and visible. Visibility means that the element is not only displayed but
-    /// also has a height and width that is greater than 0.
+    /// An expectation for checking that an element is present on the DOM of a page and visible.
+    /// Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
@@ -202,9 +201,8 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is present on the DOM of a page
-    /// and visible. Visibility means that the element is not only displayed but
-    /// also has a height and width that is greater than 0.
+    /// An expectation for checking that an element is present on the DOM of a page and visible.
+    /// Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="condition">Out parameter that returns a <see cref="Condition"/> object indicating the result of the condition.</param>
@@ -216,9 +214,8 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is present on the DOM of a page
-    /// and visible. Visibility means that the element is not only displayed but
-    /// also has a height and width that is greater than 0.
+    /// An expectation for checking that an element is present on the DOM of a page and visible.
+    /// Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
@@ -230,9 +227,8 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking that an element is present on the DOM of a page
-    /// and visible. Visibility means that the element is not only displayed but
-    /// also has a height and width that is greater than 0.
+    /// An expectation for checking that an element is present on the DOM of a page and visible.
+    /// Visibility means that the element is not only displayed but also has a height and width that is greater than 0.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
@@ -345,8 +341,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking an element is visible and enabled such that you
-    /// can click it.
+    /// An expectation for checking an element is visible and enabled such that you can click it.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
@@ -357,8 +352,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking an element is visible and enabled such that you
-    /// can click it.
+    /// An expectation for checking an element is visible and enabled such that you can click it.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="condition">Out parameter that returns a <see cref="Condition"/> object indicating the result of the condition.</param>
@@ -370,8 +364,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking an element is visible and enabled such that you
-    /// can click it.
+    /// An expectation for checking an element is visible and enabled such that you can click it.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
@@ -383,8 +376,7 @@ public class UntilElement
     }
 
     /// <summary>
-    /// An expectation for checking an element is visible and enabled such that you
-    /// can click it.
+    /// An expectation for checking an element is visible and enabled such that you can click it.
     /// </summary>
     /// <param name="locator">The locator used to find the element.</param>
     /// <param name="timeout">The time to wait for the condition to be successful.</param>
@@ -850,5 +842,71 @@ public class UntilElement
     public IWebElement AttributeDoesNotExist(By locator, string attribute, TimeSpan timeout, out Condition condition, [CallerArgumentExpression("locator")] string name = null)
     {
         return AttributeDoesNotExist(locator, attribute, timeout, out condition, false, name);
+    }
+
+    private void IsClicked(By locator, TimeSpan? timeout, out Condition condition, bool throwOnException, string name)
+    {
+        Utilities.SetTimeout(_wait, timeout, out var originalTimeout);
+        condition = new Condition();
+
+        try
+        {
+            _wait.Until(ElementConditions.IsClicked(locator, name));
+
+            condition.Result = true;
+            condition.Error = null;
+        }
+        catch (WebDriverTimeoutException ex)
+        {
+            Utilities.HandleException(ElementConditions.ErrorMessage.Value, ex, throwOnException, out condition);
+        }
+        finally
+        {
+            Utilities.ResetTimeout(_wait, timeout, originalTimeout);
+        }
+    }
+
+    /// <summary>
+    /// Will perform the Click action on the element once it is located.
+    /// </summary>
+    /// <param name="locator">The locator used to find the element.</param>
+    /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
+    public void IsClicked(By locator, [CallerArgumentExpression("locator")] string name = null)
+    {
+        IsClicked(locator, null, out _, true, name);
+    }
+
+    /// <summary>
+    /// Will perform the Click action on the element once it is located.
+    /// </summary>
+    /// <param name="locator">The locator used to find the element.</param>
+    /// <param name="timeout">The time to wait for the condition to be successful.</param>
+    /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
+    public void IsClicked(By locator, TimeSpan timeout, [CallerArgumentExpression("locator")] string name = null)
+    {
+        IsClicked(locator, timeout, out _, true, name);
+    }
+
+    /// <summary>
+    /// Will perform the Click action on the element once it is located.
+    /// </summary>
+    /// <param name="locator">The locator used to find the element.</param>
+    /// <param name="condition">Out parameter that returns a <see cref="Condition"/> object indicating the result of the condition.</param>
+    /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
+    public void IsClicked(By locator, out Condition condition, [CallerArgumentExpression("locator")] string name = null)
+    {
+        IsClicked(locator, null, out condition, false, name);
+    }
+
+    /// <summary>
+    /// Will perform the Click action on the element once it is located.
+    /// </summary>
+    /// <param name="locator">The locator used to find the element.</param>
+    /// <param name="timeout">The time to wait for the condition to be successful.</param>
+    /// <param name="condition">Out parameter that returns a <see cref="Condition"/> object indicating the result of the condition.</param>
+    /// <param name="name">The name of the locator, used for better error messages. Shouldn't be provided as it's generated automatically.</param>
+    public void IsClicked(By locator, TimeSpan timeout, out Condition condition, [CallerArgumentExpression("locator")] string name = null)
+    {
+        IsClicked(locator, timeout, out condition, false, name);
     }
 }

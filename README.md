@@ -14,7 +14,7 @@ wait.UntilElement().IsVisible(signUpButton);
 In the above example the element was found but was not visible which returned the follow error:
 ```
 Locator Name: 'signUpButton'
-Locator: 'By.Id: sign-up']'
+Locator: 'By.Id: sign-up'
 Displayed: False
 Enabled: True
 Location: {X=90,Y=110}

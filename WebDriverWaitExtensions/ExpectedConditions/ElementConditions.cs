@@ -333,4 +333,35 @@ internal static class ElementConditions
             }
         };
     }
+
+    internal static Func<IWebDriver, bool> IsClicked(By locator, string name)
+    {
+        return driver =>
+        {
+            try
+            {
+                driver.FindElement(locator).Click();
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                ErrorMessage.Value = Utilities.GetNoSuchElementExceptionMessage(locator, name);
+                return false;
+            }
+            catch (StaleElementReferenceException)
+            {
+                ErrorMessage.Value = Utilities.GetStaleElementReferenceExceptionMessage(locator, name);
+                return false;
+            }
+            catch (ElementClickInterceptedException)
+            {
+                var sb = new StringBuilder();
+                sb.AppendLine("Element has not been clicked, 'ElementClickInterceptedException' has been thrown internally.");
+                sb.AppendLine($"Locator Name: '{name}'");
+                sb.AppendLine($"Locator: '{locator}'");
+                ErrorMessage.Value = sb.ToString();
+                return false;
+            }
+        };
+    }
 }
