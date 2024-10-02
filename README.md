@@ -41,6 +41,7 @@ The library provides the following features:
 - [Alert Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilAlert()): Methods for handling alert conditions.
 - [Element Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilElement()): Methods for handling element conditions.
 - [Frame Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilFrame()): Methods for handling frame conditions.
+- [Network Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilNetwork()): Methods for handling network conditions.
 - [Text in Element Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilTextInElement()): Methods for handling text in element conditions.
 - [Title Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilTitle()): Methods for handling title conditions.
 - [URL Conditions](https://github.com/domwills/WebDriverWaitExtensions/wiki/UntilUrl()): Methods for handling URL conditions.
