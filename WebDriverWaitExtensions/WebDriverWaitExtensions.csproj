@@ -9,8 +9,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>WebDriverWaitExtensions</PackageId>
     <Description>WebDriverWaitExtensions is a C# library that provides extension methods for Selenium WebDriver's WebDriverWait class, simplifying the process of waiting for specific conditions in web automation. It includes detailed error messages and supports the use of Condition objects for assertions.</Description>
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <Authors>Dominic Williams</Authors>
+    <PackageReleaseNotes>https://github.com/domwills/WebDriverWaitExtensions/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/domwills/WebDriverWaitExtensions</PackageProjectUrl>
     <PackageTags>WebDriverWait Extensions WebDriver Selenium WebDriverWaitExtensions</PackageTags>
 

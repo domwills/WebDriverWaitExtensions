@@ -11,13 +11,14 @@ internal static class NetworkConditions
 {
     internal static ThreadLocal<string> ErrorMessage { get; } = new();
 
-    internal static Func<IWebDriver, bool> RequestSent(string url, List<string> requests)
+    internal static Func<IWebDriver, NetworkRequestSentEventArgs> RequestSent(string url, List<NetworkRequestSentEventArgs> requests)
     {
         return _ =>
         {
-            if (requests.Any(request => request == url))
+            var request = requests.FirstOrDefault(r => r.RequestUrl == url);
+            if (request != null)
             {
-                return true;
+                return request;
             }
 
             var sb = new StringBuilder();
@@ -25,7 +26,7 @@ internal static class NetworkConditions
             sb.AppendLine($"URL: '{url}'");
             ErrorMessage.Value = sb.ToString();
 
-            return false;
+            return null;
         };
     }
 }
