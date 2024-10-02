@@ -55,4 +55,12 @@ public static class WebDriverWaitExtensions
     {
         return new UntilUrl(wait);
     }
+
+    /// <summary>
+    /// Contains methods for handling network conditions.
+    /// </summary>
+    public static UntilNetwork UntilNetwork(this WebDriverWait wait)
+    {
+        return new UntilNetwork(wait);
+    }
 }
